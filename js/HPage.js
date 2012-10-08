@@ -32,7 +32,7 @@ HPage.prototype.scrollLeft = function () {
     this.positions.pop();
     this.positions.unshift(value);
     $('.pane').removeClass('pane-cycled');
-    $('.pane-' + this.getLeft()).addClass('pane-cycled');
+    $('.pane-' + this.getFirst()).addClass('pane-cycled');
     this.increment();
     this.setPanes();
 };
@@ -75,7 +75,7 @@ HPage.prototype.setPanes = function () {
     }
 };
 
-HPage.prototype.getLeft = function () {
+HPage.prototype.getFirst = function () {
     if (this.head == 1) {
         //If at the beginning get the last
         return this.size;
@@ -96,7 +96,7 @@ HPage.prototype.getRight = function () {
 };
 
 HPage.prototype.getEnd = function () {
-    return this.getLeft() == 1 ? this.size : this.getLeft() - 1;
+    return this.getFirst() == 1 ? this.size : this.getFirst() - 1;
 };
 
 HPage.prototype.getStart = function () {
