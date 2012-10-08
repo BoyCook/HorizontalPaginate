@@ -23,14 +23,19 @@ body {
     position: absolute;
     width: 980px;
     overflow: hidden;
+    z-index: 10;
     border: 1px solid rgba(0, 0, 0, .1);
 }
 
-.visible-pane {
+.pane {
     transition:left 2s;
     -moz-transition:left 2s; /* Firefox 4 */
     -webkit-transition:left 2s; /* Safari and Chrome */
     -o-transition:left 2s; /* Opera */
+}
+
+.pane-cycled {
+    z-index: -10;
 }
 
 .mask {
