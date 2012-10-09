@@ -14,7 +14,7 @@ body {
     padding-top: 0;
 }
 
-.pane-container-inner  {
+.pane-container  {
     top: 50px;
     position: absolute;
 }

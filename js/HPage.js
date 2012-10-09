@@ -12,8 +12,17 @@ function HPage(params) {
 }
 
 HPage.prototype.start = function () {
+    this.initPanes();
     this.initStack();
     this.setPanes();
+    this.addHTML();
+};
+
+HPage.prototype.addHTML = function () {
+    $('.pane-container').after("<div class='mask' id='mask-left'></div>");
+    $('.pane-container').after("<div class='mask' id='mask-right'></div>");
+    $('.pane-container').after("<a href='#' onclick='hPage.scrollLeft()' class='move-left'> < LEFT</a>");
+    $('.pane-container').after("<a href='#' onclick='hPage.scrollRight()' class='move-right'> RIGHT > </a>");
     this.setLeft('#mask-left', (-500 + this.marginWidth()));
     this.setLeft('#mask-right', (this.marginWidth() + this.contentWidth));
 };
@@ -24,6 +33,14 @@ HPage.prototype.initStack = function () {
         this.positions.push(left);
         left += this.contentWidth;
     }
+};
+
+HPage.prototype.initPanes = function () {
+    var i = 1;
+    $('.pane').each(function () {
+        $(this).addClass('pane-' + i);
+        i++;
+    });
 };
 
 HPage.prototype.scrollLeft = function () {
