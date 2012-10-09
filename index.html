@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Horizontalpaginate : Horizontal Pagination JS lib" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Horizontalpaginate</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/BoyCook/HorizontalPaginate">View on GitHub</a>
+
+          <h1 id="project_title">Horizontalpaginate</h1>
+          <h2 id="project_tagline">Horizontal Pagination JS lib</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/BoyCook/HorizontalPaginate/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/BoyCook/HorizontalPaginate/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>DESCRIPTION</h2>
+
+<p>This is a simple JavaScript/CSS component that enables you to do Horizontal Pagination on a HTML website.
+Panes can be scrolled left or right smoothly as if on a continuous reel. Panes are simply defined by using the 'pane' CSS class.</p>
+
+<h2>USAGE</h2>
+
+<p>You'll need to have div to contain the panes and give it the CSS class 'pane-container'. You can then add panes inside the container,
+which must have the CSS class 'pane':</p>
+
+<pre><code>&lt;div class="pane-container"&gt;
+    &lt;div class="pane"...&gt;
+    &lt;div class="pane"...&gt;
+    &lt;div class="pane"...&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>You also need to create the HPage JavaScript object. It works with jQuery so you'll need to do something like this:</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+    var hPage = undefined;
+
+    $(document).ready(function () {
+        hPage = new HPage({size:$('.pane').size()});
+        hPage.start();
+    });
+&lt;/script&gt;
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Horizontalpaginate maintained by <a href="https://github.com/BoyCook">BoyCook</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
