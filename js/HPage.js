@@ -4,7 +4,7 @@
 function HPage(params) {
     this.totalWidth = 1364;
     this.contentWidth = 980;
-    this.head = 2;
+    this.head = 1;
     this.size = params.size;
     this.positions = [];
 //    $(document).width();
@@ -20,7 +20,7 @@ HPage.prototype.start = function () {
 
 HPage.prototype.initStack = function () {
     var left = this.getStart();
-    for (var i = 1; i < this.size+1; i++) {
+    for (var i = 1; i < this.size + 1; i++) {
         this.positions.push(left);
         left += this.contentWidth;
     }
@@ -43,7 +43,7 @@ HPage.prototype.scrollRight = function () {
     this.positions.shift();
     this.positions.push(value);
     $('.pane').removeClass('pane-cycled');
-    $('.pane-' + this.getEnd()).addClass('pane-cycled');
+    $('.pane-' + this.getLast()).addClass('pane-cycled');
     this.decrement();
     this.setPanes();
 };
@@ -71,31 +71,15 @@ HPage.prototype.decrement = function () {
 HPage.prototype.setPanes = function () {
     //Set positions as defined in the stack
     for (var i = 0; i < this.positions.length; i++) {
-        this.setLeft('.pane-' + (i+1), this.positions[i]);
+        this.setLeft('.pane-' + (i + 1), this.positions[i]);
     }
 };
 
 HPage.prototype.getFirst = function () {
-    if (this.head == 1) {
-        //If at the beginning get the last
-        return this.size;
-    } else {
-        //Just get the previous
-        return this.head - 1;
-    }
+    return this.head;
 };
 
-HPage.prototype.getRight = function () {
-    if (this.head == this.size) {
-        //If at the end get the beginning
-        return 1;
-    } else {
-        //Just get next
-        return this.head + 1;
-    }
-};
-
-HPage.prototype.getEnd = function () {
+HPage.prototype.getLast = function () {
     return this.getFirst() == 1 ? this.size : this.getFirst() - 1;
 };
 
