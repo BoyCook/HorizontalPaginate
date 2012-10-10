@@ -6,7 +6,11 @@ function HPage(params) {
     this.contentWidth = 980;
     this.head = 1;
     this.size = params.size;
+    this.leftButton = '.move-left';
+    this.rightButton = '.move-right';
     this.positions = [];
+    this.endEvents = 'webkitTransitionEnd oTransitionEnd transitionend msTransitionEnd';
+    this.transitioning = false;
 //    $(document).width();
 //    $(window).width();
 }
@@ -16,6 +20,12 @@ HPage.prototype.start = function () {
     this.initStack();
     this.setPanes();
     this.addHTML();
+
+    var context = this;
+    $('.pane').on(this.endEvents, function () {
+        console.log('Setting transitioning = false');
+        context.transitioning = false;
+    });
 };
 
 HPage.prototype.addHTML = function () {
@@ -45,24 +55,30 @@ HPage.prototype.initPanes = function () {
 
 HPage.prototype.scrollLeft = function () {
     //Cycle the positions to the right
-    var value = this.positions[this.positions.length - 1];
-    this.positions.pop();
-    this.positions.unshift(value);
-    $('.pane').removeClass('pane-cycled');
-    $('.pane-' + this.getFirst()).addClass('pane-cycled');
-    this.increment();
-    this.setPanes();
+    if (!this.transitioning) {
+        this.transitioning = true;
+        var value = this.positions[this.positions.length - 1];
+        this.positions.pop();
+        this.positions.unshift(value);
+        $('.pane').removeClass('pane-cycled');
+        $('.pane-' + this.getFirst()).addClass('pane-cycled');
+        this.increment();
+        this.setPanes();
+    }
 };
 
 HPage.prototype.scrollRight = function () {
     //Cycle the positions to the left
-    var value = this.positions[0];
-    this.positions.shift();
-    this.positions.push(value);
-    $('.pane').removeClass('pane-cycled');
-    $('.pane-' + this.getLast()).addClass('pane-cycled');
-    this.decrement();
-    this.setPanes();
+    if (!this.transitioning) {
+        this.transitioning = true;
+        var value = this.positions[0];
+        this.positions.shift();
+        this.positions.push(value);
+        $('.pane').removeClass('pane-cycled');
+        $('.pane-' + this.getLast()).addClass('pane-cycled');
+        this.decrement();
+        this.setPanes();
+    }
 };
 
 HPage.prototype.increment = function () {
