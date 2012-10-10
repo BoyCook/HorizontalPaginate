@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Horizontal Page Scroll</title>
+    <title>Horizontal Page Scroll - small</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="css/horizontal.css" type="text/css" media="screen">
     <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/small.css" type="text/css" media="screen">
     <script type="text/javascript" src="js/lib/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="js/HPage.js"></script>
     <script type="text/javascript">
         var hPage = undefined;
         $(document).ready(function () {
-            hPage = new HPage({size:$('.pane').size()});
+            hPage = new HPage( {
+                        size: $('.pane').size(),
+                        totalWidth: 800,
+                        contentWidth: 500,
+                        maskWidth: 150
+                    });
             hPage.start();
         });
     </script>
@@ -49,25 +55,6 @@
             sodales mattis mattis. Donec a venenatis elit. Cum sociis natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus. Nulla laoreet commodo ullamcorper. Integer elementum fermentum magna, id
             convallis neque feugiat sit amet.</p>
-
-        <p>Nulla et sem orci. Pellentesque rhoncus pretium nisi sit amet luctus. Donec neque metus, placerat at
-            consectetur ut, venenatis ut lorem. Aliquam lacinia semper hendrerit. Sed pretium nunc massa. Etiam et
-            nisl et augue cursus scelerisque. Praesent lobortis vehicula lectus, gravida elementum leo feugiat in.
-            Donec ac nisl sed nibh tincidunt luctus. Nam sed neque vel lacus imperdiet porttitor vel id arcu. Sed eu
-            quam erat, non placerat sem. Vivamus viverra lacinia gravida. Nulla pretium cursus nulla, id blandit
-            erat interdum a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor, tellus et
-            sagittis lacinia, augue diam malesuada sem, in ornare dolor risus sit amet arcu. Donec id eros enim.
-            Praesent eleifend mi in erat ultrices consectetur sed vitae tortor.</p>
-
-        <p>Ut sem urna, venenatis facilisis bibendum eleifend, semper eget massa. Suspendisse malesuada semper mi id
-            vulputate. Suspendisse in libero non mauris pharetra consequat id sit amet sapien. Ut neque ipsum,
-            volutpat in porta at, iaculis eget arcu. Nam pretium ipsum in sapien mattis ut pulvinar augue euismod.
-            Maecenas tincidunt fermentum libero, at tincidunt tortor tempor vitae. Ut sed libero in urna dictum
-            tempor. Suspendisse gravida, leo sit amet tempus venenatis, tellus eros rhoncus velit, a congue nisl
-            ante sit amet lectus. Nulla sapien lectus, tempor sed euismod non, laoreet vel ligula. Vivamus fermentum
-            nulla nec tortor venenatis et tempor arcu iaculis. Phasellus et mi eu urna bibendum elementum iaculis
-            quis nibh. Aenean massa neque, gravida at fringilla at, euismod sed augue. Cum sociis natoque penatibus
-            et magnis dis parturient montes, nascetur ridiculus mus.</p>
     </div>
     <div class="pane">
         <h3>Pane 2</h3>
@@ -147,26 +134,6 @@
             bibendum id
             non turpis. Aenean ultricies sapien quis nisi sollicitudin tincidunt. Sed ut malesuada enim. Vestibulum
             hendrerit neque sed tellus lobortis rutrum.</p>
-
-        <p>Nullam sagittis lectus euismod nibh venenatis gravida. In at augue neque. Mauris interdum ligula eget
-            erat
-            pharetra vel ornare arcu mattis. Suspendisse dignissim laoreet pellentesque. Morbi tellus leo, luctus
-            quis
-            vulputate vel, vestibulum vel erat. In hac habitasse platea dictumst. Vestibulum fermentum fermentum
-            vehicula. Nam id neque mauris, eu pretium elit. Fusce dictum mollis dui, quis vulputate eros semper ut.
-            Praesent a risus id erat rhoncus iaculis a pharetra neque. Nam ut augue tortor. Aliquam et enim sem, ut
-            sagittis est. Vivamus turpis felis, ornare non rutrum sed, tincidunt et nulla.</p>
-
-        <p>Nulla venenatis, orci a congue vestibulum, velit mi facilisis metus, eu facilisis eros felis at metus.
-            Aliquam sit amet vulputate leo. Cras erat ante, lacinia ullamcorper mattis feugiat, facilisis sit amet
-            purus. Quisque volutpat euismod lectus, at accumsan urna malesuada volutpat. Aliquam ut mauris tellus, a
-            volutpat diam. Etiam ut lorem magna, sit amet egestas metus. Nulla et tortor magna. Vivamus sed risus
-            lectus. Nullam condimentum suscipit turpis, sit amet luctus sapien ornare et. Nam sed neque in nulla
-            aliquam
-            sodales ut non libero. Proin eu tristique dui. Sed ligula dui, tristique nec iaculis in, rhoncus quis
-            sem.
-            Aliquam porta, nunc non laoreet molestie, justo magna facilisis felis, vel volutpat sem arcu eu
-            ligula.</p>
     </div>
     <div class="pane">
         <h3>Pane 4</h3>

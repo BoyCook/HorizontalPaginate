@@ -2,8 +2,10 @@
  HPage component
  */
 function HPage(params) {
-    this.totalWidth = 1364;
-    this.contentWidth = 980;
+    //TODO: do proper JSON object merge
+    this.totalWidth = params.totalWidth != undefined ? params.totalWidth : 1364;
+    this.contentWidth = params.contentWidth != undefined ? params.contentWidth :980;
+    this.maskWidth = params.maskWidth != undefined ? params.maskWidth :  (this.totalWidth - this.contentWidth) / 2;
     this.head = 1;
     this.size = params.size;
     this.leftButton = '.move-left';
@@ -31,10 +33,15 @@ HPage.prototype.start = function () {
 HPage.prototype.addHTML = function () {
     $('.pane-container').after("<div class='mask' id='mask-left'></div>");
     $('.pane-container').after("<div class='mask' id='mask-right'></div>");
-    $('.pane-container').after("<a href='#' onclick='hPage.scrollLeft()' class='move-left'> < LEFT</a>");
-    $('.pane-container').after("<a href='#' onclick='hPage.scrollRight()' class='move-right'> RIGHT > </a>");
-    this.setLeft('#mask-left', (-500 + this.marginWidth()));
-    this.setLeft('#mask-right', (this.marginWidth() + this.contentWidth));
+    $('.pane-container').after("<a href='#' onclick='hPage.scrollLeft()' class='move move-left'> < LEFT</a>");
+    $('.pane-container').after("<a href='#' onclick='hPage.scrollRight()' class='move move-right'> RIGHT > </a>");
+
+    var maskCenter = (this.maskWidth / 2) - 25;
+    var maskRight = this.marginWidth() + this.contentWidth;
+    this.setLeft('.move-left', maskCenter);
+    this.setLeft('.move-right', maskRight + maskCenter);
+    this.setLeft('#mask-left', (- this.maskWidth + this.marginWidth()));
+    this.setLeft('#mask-right', maskRight);
 };
 
 HPage.prototype.initStack = function () {
