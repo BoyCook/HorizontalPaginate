@@ -1,29 +1,44 @@
-#global-nav  {
+.global-nav {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    height: 40px;
+    top: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.pane-container {
+    top: 50px;
+}
+
+#global-nav {
     background-color: #e0ffff;
     text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
     color: #BBB;
 }
 
-.pane-1 {
-    background-color: #add8e6;
-}
-
-.pane-2 {
-    background-color: #f08080;
-}
-
-.pane-3 {
-    background-color: #90ee90;
-}
-
-.pane-4 {
-    background-color: #778899;
-}
-
-.pane-5 {
-    background-color: #7b68ee;
-}
-
 .mask {
-    width: 192px;
+    top: 50px;
+    width: 150px;
 }
+
+.move-left {
+    top: 200px;
+    left: 100px;
+    position: absolute;
+    z-index: 150;
+}
+
+.move-right {
+    top: 200px;
+    left: 1200px;
+    position: absolute;
+    z-index: 150;
+}
+
+/*.h-page {*/
+    /*width: 800px;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+/*}*/

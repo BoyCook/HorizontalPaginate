@@ -25,7 +25,6 @@ HPage.prototype.start = function () {
 
     var context = this;
     $('.pane').on(this.endEvents, function () {
-        console.log('Setting transitioning = false');
         context.transitioning = false;
     });
 };
@@ -48,7 +47,7 @@ HPage.prototype.initStack = function () {
     var left = this.getStart();
     for (var i = 1; i < this.size + 1; i++) {
         this.positions.push(left);
-        left += this.contentWidth;
+        left += this.contentWidth -5;
     }
 };
 
