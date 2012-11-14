@@ -1,0 +1,44 @@
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.pane-container  {
+    position: absolute;
+}
+
+.pane {
+    position: absolute;
+    width: 980px;
+    overflow: hidden;
+    z-index: 10;
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.pane {
+    transition:left 2s;
+    -moz-transition:left 2s; /* Firefox 4 */
+    -webkit-transition:left 2s; /* Safari and Chrome */
+    -o-transition:left 2s; /* Opera */
+}
+
+.pane-cycled {
+    z-index: -10;
+}
+
+.mask {
+    height: 35.4em;
+    background-color: #fff;
+    position: absolute;
+    left: -1px;
+    z-index: 100;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.move {
+    top: 200px;
+    position: absolute;
+    z-index: 150;
+}
